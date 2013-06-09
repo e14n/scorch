@@ -1,6 +1,6 @@
 # scorch
 
-Simple file munger using underscore templates.
+Use underscore for creating files from a template
 
 I needed to have file templating for some systems responsibilities and
 I didn't feel like learning m4 or some other horrible language. I like
