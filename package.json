@@ -1,6 +1,6 @@
 {
     "name": "scorch",
-    "version": "0.1.0-alpha.1",
+    "version": "0.1.0",
     "dependencies": {
         "underscore": "1.4.x",
         "async": "0.2.x"
