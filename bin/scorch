@@ -28,11 +28,11 @@ var getTemplate = function(templateFile, callback) {
 
     async.waterfall([
         function(callback) {
-            fs.readFile(templateFile, {encoding: "utf8"}, callback);
+            fs.readFile(templateFile, callback);
         },
-        function(code, callback) {
+        function(buf, callback) {
             try {
-                callback(null, _.template(code));
+                callback(null, _.template(buf.toString("utf8")));
             } catch (err) {
                 callback(err, null);
             }
@@ -44,12 +44,12 @@ var getData = function(dataFile, callback) {
 
     async.waterfall([
         function(callback) {
-            fs.readFile(dataFile, {encoding: "utf8"}, callback);
+            fs.readFile(dataFile, callback);
         },
-        function(json, callback) {
+        function(buf, callback) {
             var obj;
             try {
-                obj = JSON.parse(json);
+                obj = JSON.parse(buf.toString("utf8"));
                 if (!_.isObject(obj)) {
                     throw new Error("Data file must contain a JSON object");
                 }
