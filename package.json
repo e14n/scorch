@@ -1,9 +1,9 @@
 {
     "name": "scorch",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "dependencies": {
-        "underscore": "1.4.x",
-        "async": "0.2.x"
+        "underscore": "1.8.x",
+        "async": "0.9.x"
     },
     "repository": {
         "type": "git",
@@ -19,6 +19,6 @@
         }
     ],
     "engine": {
-        "node": ">=0.8"
+        "node": ">=0.10"
     }
 }
