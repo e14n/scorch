@@ -14,9 +14,14 @@ Run it like:
 
     scorch template.tmpl data.json > result.yourfile
 
+To use the environment variables as your data, run it like this:
+
+    scorch -e template.tmpl > result.yourfile
+
 ## License
 
 Copyright 2013 E14N https://e14n.com/
+Copyright 2015 Fuzzy.io https://fuzzy.io/
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

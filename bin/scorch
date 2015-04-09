@@ -5,6 +5,7 @@
 // use underscore to change a file (get it!?!)
 //
 // Copyright 2013 E14N https://e14n.com/
+// Copyright 2015 Fuzzy.io https://fuzzy.io/
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -70,7 +71,11 @@ var scorch = function(templateFile, dataFile, callback) {
                     getTemplate(templateFile, callback);
                 },
                 function(callback) {
-                    getData(dataFile, callback);
+                    if (dataFile) {
+                      getData(dataFile, callback);
+                    } else {
+                      callback(null, process.env)
+                    }
                 }
             ], callback);
         },
@@ -89,10 +94,14 @@ var scorch = function(templateFile, dataFile, callback) {
 var main = function(argv, callback) {
 
     if (argv.length != 4) {
-        callback(new Error("Usage: scorch <template> <data> > <result>"), null);
+        callback(new Error("Usage: scorch [-e] <template> [<data>] > <result>"), null);
     }
 
-    scorch(argv[2], argv[3], callback);
+    if (argv[2] == '-e') {
+        scorch(argv[3], null, callback);
+    } else {
+        scorch(argv[2], argv[3], callback);
+    }
 };
 
 main(process.argv, function(err, result) {
